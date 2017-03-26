@@ -96,3 +96,43 @@ class Gallery extends Component {
 export default Gallery;
 ```
 
+### Accessing the Packery instance
+
+Should you need to access the instancy of Packery, you can do so by using the `ref` callback from the component.
+
+```js
+import React,{Component} from 'react';
+import Packery from 'react-packery-component';
+
+class Gallery extends Component {
+    handleLayoutComplete: function() { },
+
+    componentDidMount: function() {
+      this.packery.on('layoutComplete', this.handleLayoutComplete);
+    },
+
+    componentWillUnmount: function() {
+      this.packery.off('layoutComplete', this.handleLayoutComplete);
+    }
+
+    render() {
+        const childElements = this.props.elements.map((element) => {
+           return (
+                <li className="image-element-class">
+                    <img src={element.src} />
+                </li>
+            );
+        });
+
+        return (
+            <Packery
+                ref={function(c) {this.packery = this.packery || c.packery;}.bind(this)}
+            >
+                {childElements}
+            </Packery>
+        );
+    }
+});
+
+export default Gallery;
+```

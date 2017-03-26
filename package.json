@@ -4,8 +4,12 @@
   "main": "./lib/index",
   "description": "A Packery component for React.js",
   "dependencies": {
-    "packery": "eiriklv/packery",
-    "imagesloaded": "eiriklv/imagesloaded"
+    "packery": "uncommonconcept/packery",
+    "imagesloaded": "uncommonconcept/imagesloaded",
+    "draggabilly": "^2.1.1",
+    "lodash.assign": "^4.0.9",
+    "lodash.debounce": "^4.0.6",
+    "lodash.omit": "^4.3.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -13,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/eiriklv/react-packery-component.git"
+    "url": "git://github.com/uncommonconcept/react-packery-component.git"
   },
   "keywords": [
     "react",
@@ -31,8 +35,8 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/eiriklv/react-packery-component/issues"
+    "url": "https://github.com/uncommonconcept/react-packery-component/issues"
   },
-  "homepage": "https://github.com/eiriklv/react-packery-component",
+  "homepage": "https://github.com/uncommonconcept/react-packery-component",
   "license": "MIT"
 }
