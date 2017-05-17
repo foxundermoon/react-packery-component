@@ -1,15 +1,17 @@
 {
   "name": "react-packery-component",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "./lib/index",
   "description": "A Packery component for React.js",
   "dependencies": {
-    "packery": "uncommonconcept/packery",
-    "imagesloaded": "uncommonconcept/imagesloaded",
+    "create-react-class": "^15.5.3",
     "draggabilly": "^2.1.1",
+    "imagesloaded": "uncommonconcept/imagesloaded",
     "lodash.assign": "^4.0.9",
     "lodash.debounce": "^4.0.6",
-    "lodash.omit": "^4.3.0"
+    "lodash.omit": "^4.3.0",
+    "packery": "uncommonconcept/packery",
+    "prop-types": "^15.5.10"
   },
   "devDependencies": {},
   "scripts": {
