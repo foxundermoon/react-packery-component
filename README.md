@@ -136,3 +136,61 @@ class Gallery extends Component {
 
 export default Gallery;
 ```
+
+### Setting the ImageLoadedEvent 
+
+```js
+import React,{Component} from 'react';
+import Packery from 'react-packery-component';
+
+const packeryOptions = {
+    transitionDuration: 0
+};
+
+export default class Gallery extends Component {
+
+    render() {
+        const childElements = this.props.elements.map((element) => {
+           return (
+                <li className="image-element-class">
+                    <img src={element.src} />
+                </li>
+            );
+        });
+
+        return (
+            <Packery
+                className={'my-gallery-class'} // default ''
+                elementType={'ul'} // default 'div'
+                options={packeryOptions} // default {}
+                disableImagesLoaded={false} // default false
+                imagesLoadedEvent={[
+                    {
+                        name: "always",
+                        event: (instance)=>console.log('ALWAYS - all images have been loaded')
+                    },
+                    {
+                        name: "done",
+                        event: (instance) => console.log("DONE  - all images have been successfully loaded") 
+                    },
+                    {
+                        name: "fail",
+                        event: (instance)=> console.log("FAIL - all images loaded, at least one is broken")
+                    },
+                    {
+                        name: "progress",
+                        event: (instance, image)=> {
+                            let result = image.isLoaded ? 'loaded' : 'broken';
+                            console.log( 'image is ' + result + ' for ' + image.img.src );
+                        }
+                    }
+                ]}
+
+            >
+                {childElements}
+            </Packery>
+        );
+    }
+}
+
+```
